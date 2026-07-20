@@ -27,9 +27,14 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandName('RED DEVELOPMENT')
+            ->favicon(asset('favicon.svg'))
+            ->brandLogo(asset('images/red-logo.svg'))
+            ->brandLogoHeight('5rem')
+            ->spa()
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Red,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
