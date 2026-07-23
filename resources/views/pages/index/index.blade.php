@@ -77,9 +77,15 @@ $roleColors = [
                             @endforeach
 
                         </div>
-
+                        
+                        
                     </div>
-
+                    
+                    <a href="{{ $member->link }}">
+                        <div class="bg-rose-500 px-4 py-2 rounded-lg text-white mt-5 text-center font-semibold" >
+                            View
+                        </div>
+                    </a>
                 </div>
 
             @endforeach
