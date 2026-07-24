@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
+            $table->string('photo');
             $table->text('deskripsi');
             $table->json('tech');
             $table->boolean('is_active');

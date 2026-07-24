@@ -70,7 +70,7 @@ $roleColors = [
                             @foreach(array_filter(array_map('trim', explode(',', $member->role))) as $role)
 
                                 <span
-                                    class="rounded-full px-3 py-1 text-xs font-semibold ring-1 {{ $roleColors[strtolower($role)] ?? 'bg-gray-100 text-gray-700 ring-gray-300' }}">
+                                    class="rounded-full px-3 py-1 capitalize text-xs font-semibold ring-1 {{ $roleColors[strtolower($role)] ?? 'bg-gray-100 text-gray-700 ring-gray-300' }}">
                                     {{ $role }}
                                 </span>
 
@@ -81,7 +81,7 @@ $roleColors = [
                         
                     </div>
                     
-                    <a href="{{ $member->link }}">
+                    <a href="{{ $member->link }}" target="_blank" >
                         <div class="bg-rose-500 px-4 py-2 rounded-lg text-white mt-5 text-center font-semibold" >
                             View
                         </div>
