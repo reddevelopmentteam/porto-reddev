@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\TeamMembers\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -14,23 +15,35 @@ class TeamMemberForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->placeholder('Enter Your Full Name')
+                    ->label('Full Name')
+                    ->placeholder('Enter your full name')
                     ->required(),
+
+                TextInput::make('link')
+                    ->label('Portfolio Link')
+                    ->placeholder('https://github.com/username')
+                    ->url()
+                    ->required(),                
                 Textarea::make('role')
-                    ->placeholder('Example : Leader, Frontend, Backend')
-                    ->dehydrateStateUsing(fn ($state) => strtolower($state))
-                    ->required()
-                    ->columnSpanFull(),
+                    ->label('Role')
+                    ->placeholder("Leader, Frontend, Backend")
+                    ->rows(4)
+                    ->helperText('Separate each technology with commas.')
+                    ->dehydrateStateUsing(fn (?string $state) => strtolower(trim($state)))
+                    ->columnSpanFull()
+                    ->required(),
+
                 FileUpload::make('photo')
-                    ->preventFilePathTampering()
-                    ->preserveFilenames()
+                    ->label('Profile Photo')
                     ->image()
+                    ->imageEditor()
+                    ->imagePreviewHeight('250')
+                    ->panelLayout('integrated')
                     ->disk('public')
                     ->directory('team-members')
-                    ->imageEditor()
-                    ->required(),
-                TextInput::make('link')
-                    ->placeholder('Enter your Portfolio Link')
+                    ->preventFilePathTampering()
+                    ->preserveFilenames()
+                    ->columnSpanFull()
                     ->required(),
             ]);
     }

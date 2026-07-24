@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TeamMember extends Model
+class Product extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'id',
         'name',
-        'role',
-        'photo',
-        'link',
+        'deskripsi',
+        'tech',
+        'is_active',
     ];
 
     protected $casts = [
-        'role' => 'array',
+        'tech' => 'array',
     ];
 }

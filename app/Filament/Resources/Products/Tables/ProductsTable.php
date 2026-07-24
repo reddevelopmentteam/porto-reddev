@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\TeamMembers\Tables;
+namespace App\Filament\Resources\Products\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -8,12 +8,13 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\ImageColumn;
 
-class TeamMembersTable
+class ProductsTable
 {
     public static function configure(Table $table): Table
     {
@@ -26,19 +27,20 @@ class TeamMembersTable
                     ->imageWidth(80)
                     ->visibility('private')
                     ->disk('public')
-                    ->label('Member Photo')
+                    ->label('Product Photo')
                     ->searchable(),
-                TextColumn::make('role')
-                    ->formatStateUsing(fn (string $state) => ucwords($state))
-                    ->badge()
-                    ->separator(','),
-                TextColumn::make('link')
-                    ->searchable(),
+                IconColumn::make('is_active')
+                    ->label('Status')
+                    ->boolean(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -49,8 +51,7 @@ class TeamMembersTable
             ->recordActions([
                 EditAction::make()
                     ->color('warning'),
-                DeleteAction::make()
-                    ->color('danger'),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
@@ -59,8 +60,8 @@ class TeamMembersTable
                     RestoreBulkAction::make(),
                 ]),
             ])
-            ->emptyStateHeading('No Member Data Yet')
-            ->emptyStateDescription("Once you add the first member's data, the data will appear here.")
-            ->emptyStateIcon('heroicon-o-user-group');
+            ->emptyStateHeading('No Product Data Available Yet')
+            ->emptyStateDescription('Once you add the first product, the data will appear here.')
+            ->emptyStateIcon('heroicon-o-shopping-bag');
     }
 }
