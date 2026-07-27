@@ -10,6 +10,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -30,7 +31,11 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('RED DEVELOPMENT')
             ->favicon(asset('favicon.svg'))
             ->brandLogo(asset('images/red-logo.svg'))
-            ->brandLogoHeight('5rem')
+            ->brandLogoHeight('4rem')
+            ->renderHook(
+                PanelsRenderHook::STYLES_AFTER,
+                fn (): string => view('filament.hooks.logo-styles')->render(),
+            )
             ->spa()
             ->login()
             ->colors([

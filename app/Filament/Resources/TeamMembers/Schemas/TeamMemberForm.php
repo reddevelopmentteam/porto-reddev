@@ -3,9 +3,9 @@
 namespace App\Filament\Resources\TeamMembers\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Schemas\Components\Grid;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class TeamMemberForm
@@ -14,37 +14,51 @@ class TeamMemberForm
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->label('Full Name')
-                    ->placeholder('Enter your full name')
-                    ->required(),
-
-                TextInput::make('link')
-                    ->label('Portfolio Link')
-                    ->placeholder('https://github.com/username')
-                    ->url()
-                    ->required(),                
-                Textarea::make('role')
-                    ->label('Role')
-                    ->placeholder("Leader, Frontend, Backend")
-                    ->rows(4)
-                    ->helperText('Separate each technology with commas.')
-                    ->dehydrateStateUsing(fn (?string $state) => strtolower(trim($state)))
+                Section::make(fn (string $operation) => $operation === 'create'
+                ? 'Create Member'
+                : 'Edit Member'
+                )
                     ->columnSpanFull()
-                    ->required(),
-
-                FileUpload::make('photo')
-                    ->label('Profile Photo')
-                    ->image()
-                    ->imageEditor()
-                    ->imagePreviewHeight('250')
-                    ->panelLayout('integrated')
-                    ->disk('public')
-                    ->directory('team-members')
-                    ->preventFilePathTampering()
-                    ->preserveFilenames()
-                    ->columnSpanFull()
-                    ->required(),
+                    ->columns(2)
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('Full Name')
+                            ->placeholder('Enter your full name')
+                            ->required(),
+        
+                        TextInput::make('link')
+                            ->label('Portfolio Link')
+                            ->placeholder('https://github.com/username')
+                            ->url()
+                            ->required(),                
+                        Select::make('role')
+                            ->multiple()
+                            ->label('Roles')
+                            ->placeholder('Select Role')
+                            ->options([
+                                'frontend' => 'Frontend Developer',
+                                'backend' => 'Backend Developer',
+                                'fullstack' => 'Full Stack Developer',
+                                'uiux' => 'UI/UX Designer',
+                                'qa' => 'QA Engineer',
+                                'devops' => 'DevOps Engineer',
+                                'leader' => 'Team Leader',
+                                'pm' => 'Project Manager',
+                            ])
+                            ->required(),
+                        FileUpload::make('photo')
+                            ->label('Profile Photo')
+                            ->image()
+                            ->imageEditor()
+                            ->imagePreviewHeight('250')
+                            ->panelLayout('integrated')
+                            ->disk('public')
+                            ->directory('team-members')
+                            ->preventFilePathTampering()
+                            ->preserveFilenames()
+                            ->columnSpanFull()
+                            ->required(),
+                    ])
             ]);
     }
 }
