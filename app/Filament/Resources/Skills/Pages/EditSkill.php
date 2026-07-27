@@ -1,29 +1,23 @@
 <?php
 
-namespace App\Filament\Resources\TeamMembers\Pages;
+namespace App\Filament\Resources\Skills\Pages;
 
-use App\Filament\Resources\TeamMembers\TeamMemberResource;
+use App\Filament\Resources\Skills\SkillResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
 use Override;
 
-class EditTeamMember extends EditRecord
+class EditSkill extends EditRecord
 {
-    protected static string $resource = TeamMemberResource::class;
-    
+    protected static string $resource = SkillResource::class;
+
     protected ?string $heading = '';
 
     protected function getBreadcrubms(): array
     {
         return [];
-    }
-
-    #[Override]
-    protected function getRedirectUrl(): string
-    {
-        return TeamMemberResource::getUrl('index');
     }
 
     protected function getHeaderActions(): array
@@ -33,5 +27,11 @@ class EditTeamMember extends EditRecord
             ForceDeleteAction::make(),
             RestoreAction::make(),
         ];
+    }
+
+    #[Override]
+    protected function getRedirectUrl(): string
+    {
+        return SkillResource::getUrl('index');
     }
 }

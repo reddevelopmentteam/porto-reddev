@@ -20,18 +20,40 @@ class TeamMembersTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->sortable()
                     ->searchable(),
                 ImageColumn::make('photo')
                     ->imageHeight(80)
                     ->imageWidth(80)
-                    ->visibility('private')
                     ->disk('public')
                     ->label('Member Photo')
                     ->searchable(),
                 TextColumn::make('role')
-                    ->formatStateUsing(fn (string $state) => ucwords($state))
+                    ->searchable()
                     ->badge()
-                    ->separator(','),
+                    ->listWithLineBreaks()
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'frontend' => 'Frontend',
+                        'backend' => 'Backend',
+                        'fullstack' => 'Full Stack',
+                        'uiux' => 'UI/UX',
+                        'qa' => 'QA',
+                        'leader' => 'Leader',
+                        'devops' => 'DevOps',
+                        'pm' => 'Project Manager',
+                        default => $state,
+                    })
+                    ->color(fn (string $state) => match ($state) {
+                        'frontend' => 'info',      // biru
+                        'backend' => 'success',    // hijau
+                        'fullstack' => 'warning',  // kuning
+                        'uiux' => 'purple',        // ungu
+                        'qa' => 'danger',          // merah
+                        'devops' => 'gray',        // abu-abu
+                        'leader' => 'secondary',    
+                        'pm' => 'primary',         // warna utama panel
+                        default => 'gray',
+                    }),
                 TextColumn::make('link')
                     ->searchable(),
                 TextColumn::make('created_at')
@@ -48,9 +70,11 @@ class TeamMembersTable
             ])
             ->recordActions([
                 EditAction::make()
-                    ->color('warning'),
+                    ->color('warning')
+                    ->badge(),
                 DeleteAction::make()
-                    ->color('danger'),
+                ->color('danger')
+                ->badge(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
