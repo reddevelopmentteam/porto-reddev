@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Project;
 use App\Models\Skill;
 use App\Models\TeamMember;
 use Filament\Support\Icons\Heroicon;
@@ -20,7 +21,7 @@ class PortfolioStats extends StatsOverviewWidget
 
     protected function getColumns(): int | array | null
     {
-        return 2;
+        return 3;
     }
 
     protected function getStats(): array
@@ -30,12 +31,20 @@ class PortfolioStats extends StatsOverviewWidget
                 ->description('Data anggota tim aktif')
                 ->descriptionIcon(Heroicon::OutlinedUserGroup)
                 ->icon(Heroicon::OutlinedUserGroup)
+                ->chart([1, 1, 1, 1, 1, 1, 1])
                 ->color('primary'),
             Stat::make('Total skill', Skill::query()->count())
                 ->description('Keahlian yang ditampilkan')
                 ->descriptionIcon(Heroicon::OutlinedCodeBracket)
                 ->icon(Heroicon::OutlinedCommandLine)
+                ->chart([1, 1, 1, 1, 1, 1, 1])
                 ->color('success'),
+            stat::make('Total Project', Project::query()->count())
+                ->description('Keahlian yang ditampilkan')
+                ->descriptionIcon(Heroicon::OutlinedComputerDesktop)
+                ->icon(Heroicon::OutlinedComputerDesktop)
+                ->chart([1, 1, 1, 1, 1, 1, 1])
+                ->color('warning'),
         ];
     }
 }

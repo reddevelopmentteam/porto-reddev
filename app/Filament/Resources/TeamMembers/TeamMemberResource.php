@@ -15,6 +15,7 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use UnitEnum;
 
 class TeamMemberResource extends Resource
 {
@@ -24,6 +25,10 @@ class TeamMemberResource extends Resource
 
     protected static string|BackedEnum|null $activeNavigationIcon = Heroicon::UserGroup;
 
+    protected static string|UnitEnum|null $navigationGroup = 'Data Master';
+
+    protected static ?int $navigationSort = 1;
+    
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema

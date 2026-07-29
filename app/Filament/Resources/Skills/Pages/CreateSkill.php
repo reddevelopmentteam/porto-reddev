@@ -9,13 +9,6 @@ use Override;
 class CreateSkill extends CreateRecord
 {
     protected static string $resource = SkillResource::class;
-
-    protected ?string $heading = '';
-
-    protected function getBreadcrubms(): array
-    {
-        return [];
-    }
     
     #[Override]
     protected function getRedirectUrl(): string

@@ -46,7 +46,7 @@ class TeamMemberForm
                                 'pm' => 'Project Manager',
                             ])
                             ->required(),
-                        FileUpload::make('photo')
+                        FileUpload::make('img')
                             ->label('Profile Photo')
                             ->image()
                             ->imageEditor()

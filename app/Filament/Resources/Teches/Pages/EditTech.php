@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Filament\Resources\Contacts\Pages;
+namespace App\Filament\Resources\Teches\Pages;
 
-use App\Filament\Resources\Contacts\ContactResource;
+use App\Filament\Resources\Teches\TechResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
-use Override;
 
-class EditContact extends EditRecord
+class EditTech extends EditRecord
 {
-    protected static string $resource = ContactResource::class;
-    
+    protected static string $resource = TechResource::class;
+
     protected function getHeaderActions(): array
     {
         return [
@@ -20,11 +19,5 @@ class EditContact extends EditRecord
             ForceDeleteAction::make(),
             RestoreAction::make(),
         ];
-    }
-
-    #[Override]
-    protected function getRedirectUrl(): ?string
-    {
-        return ContactResource::getUrl('index');
     }
 }

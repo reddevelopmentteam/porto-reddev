@@ -5,19 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TeamMember extends Model
+class Project extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'id',
         'name',
-        'role',
         'img',
-        'link',
+        'desc',
+        'tech',
+        'link'
     ];
 
     protected $casts = [
-        'role' => 'array',
+        'tech' => 'array',
+        'img' => 'array',
     ];
+
+    public function techs()
+    {
+        return $this->belongsToMany(Tech::class);
+    }
 }
