@@ -25,6 +25,11 @@ class Project extends Model
 
     public function techs()
     {
-        return $this->belongsToMany(Tech::class);
+        return $this->belongsToMany(
+            Tech::class,
+            'project_tech',
+            'project_id',
+            'tech_id'
+        );
     }
 }

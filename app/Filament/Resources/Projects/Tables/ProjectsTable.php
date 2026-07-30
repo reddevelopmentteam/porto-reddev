@@ -23,12 +23,13 @@ class ProjectsTable
                 ImageColumn::make('img')
                     ->label('Project Image')
                     ->imageHeight(80)
-                    ->imageWidth(80)
+                ->imageWidth(80)
                     ->disk('public')
                     ->label('Project Image')
                     ->searchable(),
-                TextColumn::make('techs')
+                TextColumn::make('techs.name')
                     ->label('Tech')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('link')
                     ->searchable(),

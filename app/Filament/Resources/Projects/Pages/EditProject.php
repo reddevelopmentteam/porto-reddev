@@ -7,10 +7,17 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\ForceDeleteAction;
 use Filament\Actions\RestoreAction;
 use Filament\Resources\Pages\EditRecord;
+use Override;
 
 class EditProject extends EditRecord
 {
     protected static string $resource = ProjectResource::class;
+    
+    #[Override]
+    protected function getRedirectUrl(): string
+    {
+        return ProjectResource::getUrl('index');
+    }
 
     protected function getHeaderActions(): array
     {
@@ -20,4 +27,5 @@ class EditProject extends EditRecord
             RestoreAction::make(),
         ];
     }
+
 }
