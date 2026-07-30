@@ -13,7 +13,7 @@ class TeamMember extends Model
         'id',
         'name',
         'role',
-        'photo',
+        'img',
         'link',
     ];
 

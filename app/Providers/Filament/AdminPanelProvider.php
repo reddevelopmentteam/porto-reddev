@@ -18,6 +18,7 @@ use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Filament\Navigation\NavigationGroup;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -33,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogoHeight('4rem')
             ->renderHook(
                 PanelsRenderHook::STYLES_AFTER,
-                fn (): string => view('filament.hooks.logo-styles')->render(),
+                fn(): string => view('filament.hooks.logo-styles')->render(),
             )
             ->spa()
             ->login()
@@ -47,9 +48,7 @@ class AdminPanelProvider extends PanelProvider
                 Dashboard::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
-            ->widgets([
-                
-            ])
+            ->widgets([])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -60,6 +59,14 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+            ])
+            ->navigationGroups([
+                NavigationGroup::make()
+                    ->label('Data Master')
+                    ->collapsible(),
+
+                NavigationGroup::make()
+                    ->label('Setting'),
             ])
             ->authMiddleware([
                 Authenticate::class,

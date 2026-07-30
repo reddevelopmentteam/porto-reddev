@@ -10,13 +10,6 @@ class CreateContact extends CreateRecord
 {
     protected static string $resource = ContactResource::class;
 
-    protected ?string $heading = '';
-    
-    protected function getBreadcrubms(): array
-    {
-        return [];
-    }
-
     #[Override]
     protected function getRedirectUrl(): string
     {

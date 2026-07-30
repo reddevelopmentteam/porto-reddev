@@ -13,13 +13,6 @@ class EditTeamMember extends EditRecord
 {
     protected static string $resource = TeamMemberResource::class;
     
-    protected ?string $heading = '';
-
-    protected function getBreadcrubms(): array
-    {
-        return [];
-    }
-
     #[Override]
     protected function getRedirectUrl(): string
     {

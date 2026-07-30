@@ -13,13 +13,6 @@ class EditSkill extends EditRecord
 {
     protected static string $resource = SkillResource::class;
 
-    protected ?string $heading = '';
-
-    protected function getBreadcrubms(): array
-    {
-        return [];
-    }
-
     protected function getHeaderActions(): array
     {
         return [

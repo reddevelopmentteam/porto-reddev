@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Skills;
+namespace App\Filament\Resources\Projects;
 
-use App\Filament\Resources\Skills\Pages\CreateSkill;
-use App\Filament\Resources\Skills\Pages\EditSkill;
-use App\Filament\Resources\Skills\Pages\ListSkills;
-use App\Filament\Resources\Skills\Schemas\SkillForm;
-use App\Filament\Resources\Skills\Tables\SkillsTable;
-use App\Models\Skill;
+use App\Filament\Resources\Projects\Pages\CreateProject;
+use App\Filament\Resources\Projects\Pages\EditProject;
+use App\Filament\Resources\Projects\Pages\ListProjects;
+use App\Filament\Resources\Projects\Schemas\ProjectForm;
+use App\Filament\Resources\Projects\Tables\ProjectsTable;
+use App\Models\Project;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -17,28 +17,28 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
-class SkillResource extends Resource
+class ProjectResource extends Resource
 {
-    protected static ?string $model = Skill::class;
+    protected static ?string $model = Project::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCommandLine;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedComputerDesktop;
 
-    protected static string|BackedEnum|null $activeNavigationIcon = Heroicon::CommandLine;
+    protected static string|BackedEnum|null $activeNavigationIcon = Heroicon::ComputerDesktop;
 
     protected static string|UnitEnum|null $navigationGroup = 'Data Master';
 
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 2;
 
     protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {
-        return SkillForm::configure($schema);
+        return ProjectForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return SkillsTable::configure($table);
+        return ProjectsTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -51,9 +51,9 @@ class SkillResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListSkills::route('/'),
-            'create' => CreateSkill::route('/create'),
-            'edit' => EditSkill::route('/{record}/edit'),
+            'index' => ListProjects::route('/'),
+            'create' => CreateProject::route('/create'),
+            'edit' => EditProject::route('/{record}/edit'),
         ];
     }
 
