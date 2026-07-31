@@ -21,13 +21,8 @@ class ContactForm
                         ->placeholder('Enter your full name')
                         ->required(),
                     TextInput::make('link')
-                        ->url()
-                        ->placeholder('https://github.com/username')
-                        ->required(),
-                    TextInput::make('icon')
-                        ->label('Icon Name')
-                        ->placeholder('Example: mdi:home')
-                        ->dehydrateStateUsing(fn (?string $state) => strtolower(trim($state)))
+                        ->label('Link Contact')
+                        ->placeholder('example : https://github.com/username or mailto:red.dev@gmail.com')
                         ->required(),
                 ])
             ]);

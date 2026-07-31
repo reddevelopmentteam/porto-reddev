@@ -25,7 +25,7 @@ class ContactResource extends Resource
 
     protected static string|BackedEnum|null $activeNavigationIcon = Heroicon::Phone;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Setting';
+    protected static string|UnitEnum|null $navigationGroup = 'Communication';
 
     protected static ?string $recordTitleAttribute = 'name';
 

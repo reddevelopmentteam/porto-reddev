@@ -25,7 +25,7 @@ class SkillResource extends Resource
 
     protected static string|BackedEnum|null $activeNavigationIcon = Heroicon::CommandLine;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Data Master';
+    protected static string|UnitEnum|null $navigationGroup = 'Portfolio';
 
     protected static ?int $navigationSort = 3;
 

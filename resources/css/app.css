@@ -2,7 +2,35 @@
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@custom-variant dark (&:where(.dark, .dark *));
+@source "../views";
+@source "../js";
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Font */
+    --font-sans: "Poppins", sans-serif;
+
+    /* Colors */
+    --color-primary: #C8102E;   /* Merah utama */
+    --color-accent: #C8102E;    /* Merah tua */
+    --color-base: #0A0A0A;      /* Background utama */
+    --color-surface: #171717;   /* Card, navbar */
+    --color-border: #2A2A2A;    /* Border */
+
+    /* Shadows */
+    --shadow-glow: 0 0 40px rgba(200, 16, 46, 0.35);
+    --shadow-glow-red: 0 0 40px rgba(139, 0, 0, 0.25);
 }
+
+/* Minimal non-utility styles required for glassmorphism + custom scrollbar (no external CSS file used) */
+        html { background-color: black; }
+        body { background-color: black; }
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(#C8102E, #8B0000); border-radius: 999px; }

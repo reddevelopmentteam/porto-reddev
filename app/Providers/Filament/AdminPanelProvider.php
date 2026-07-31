@@ -62,11 +62,14 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationGroups([
                 NavigationGroup::make()
-                    ->label('Data Master')
+                    ->label('Portfolio')
                     ->collapsible(),
 
                 NavigationGroup::make()
-                    ->label('Setting'),
+                    ->label('Reference'),
+
+                NavigationGroup::make()
+                    ->label('Communication'),
             ])
             ->authMiddleware([
                 Authenticate::class,
