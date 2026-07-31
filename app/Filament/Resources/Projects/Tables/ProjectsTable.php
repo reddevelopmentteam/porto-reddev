@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Projects\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -46,7 +47,12 @@ class ProjectsTable
                 TrashedFilter::make(),
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->color('warning')
+                    ->button(),
+                DeleteAction::make()
+                    ->color('warning')
+                    ->button(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

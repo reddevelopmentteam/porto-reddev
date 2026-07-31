@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Teches\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class TechForm
@@ -11,11 +12,23 @@ class TechForm
     {
         return $schema
             ->components([
-                TextInput::make('name')
-                    ->required(),
-                TextInput::make('slug')
-                    ->required(),
-                TextInput::make('icon'),
+                Section::make()
+                    ->columnSpanFull()
+                    ->columns()
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('Technology Name')
+                            ->placeholder('Example: Alpine.js')
+                            ->required(),
+                        TextInput::make('slug')
+                            ->placeholder('Example: alpinejs')
+                            ->required(),
+                        TextInput::make('icon')
+                            ->label('Icon Technology')
+                            ->placeholder('Example: mdi:evenlop')
+                            ->required(),
+                    ])
+
             ]);
     }
 }

@@ -43,10 +43,10 @@ class SkillsTable
             ->recordActions([
                 EditAction::make()
                     ->color('warning')
-                    ->badge(),
+                    ->button(),
                 DeleteAction::make()
                     ->color('danger')
-                    ->badge(),
+                    ->button(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

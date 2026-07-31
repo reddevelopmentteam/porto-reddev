@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Contacts\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -38,7 +39,12 @@ class ContactsTable
                 TrashedFilter::make(),
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->color('warning')
+                    ->button(),
+                DeleteAction::make()
+                    ->color('danger')
+                    ->button(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

@@ -25,7 +25,7 @@ class TeamMemberResource extends Resource
 
     protected static string|BackedEnum|null $activeNavigationIcon = Heroicon::UserGroup;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Data Master';
+    protected static string|UnitEnum|null $navigationGroup = 'Portfolio';
 
     protected static ?int $navigationSort = 1;
     

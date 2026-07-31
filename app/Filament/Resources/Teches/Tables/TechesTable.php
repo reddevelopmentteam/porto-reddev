@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Teches\Tables;
 
 use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
@@ -40,7 +41,12 @@ class TechesTable
                 TrashedFilter::make(),
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->color('warning')
+                    ->button(),
+                DeleteAction::make()
+                    ->color('danger')
+                    ->button(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
@@ -48,6 +54,9 @@ class TechesTable
                     ForceDeleteBulkAction::make(),
                     RestoreBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->emptyStateHeading('No Technology Data Yet')
+            ->emptyStateDescription("Once you add the first Technologies data, the data will appear here.")
+            ->emptyStateIcon('heroicon-o-code-bracket-square');
     }
 }
