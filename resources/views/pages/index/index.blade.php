@@ -17,7 +17,7 @@
         'email' => 'lucide:mail',
         'mail' => 'lucide:mail',
         'whatsapp' => 'logos:whatsapp-icon',
-        'phone' => 'lucide:phone',
+        'phone' => 'lucide:phone', 
         'telegram' => 'logos:telegram',
         'instagram' => 'skill-icons:instagram',
         'linkedin' => 'skill-icons:linkedin',
