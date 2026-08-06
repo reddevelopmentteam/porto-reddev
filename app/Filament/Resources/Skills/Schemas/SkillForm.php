@@ -26,18 +26,13 @@ class SkillForm
                         ->placeholder('Example: mdi:home')
                         ->dehydrateStateUsing(fn (?string $state) => strtolower(trim($state)))
                         ->required(),
-                    Select::make('category')
-                    ->options([
-                        'Programming Languages' => 'Programming Languages',
-                        'Frameworks & Libraries' => 'Frameworks & Libraries',
-                        'Database' => 'Database',
-                        'Tools' => 'Tools',
-                        'DevOps & Deployment' => 'DevOps & Deployment',
-                        'UI/UX' => 'UI/UX',
-                        'Cybersecurity' => 'Cybersecurity',
-                        'Soft Skills' => 'Soft Skills',
-                    ])
-                    ->required(),
+                    Select::make('categories')
+                        ->relationship('categories', 'name')
+                        ->label('Skill Categories')
+                        ->searchable()
+                        ->placeholder('Select Category')
+                        ->preload()
+                        ->required(),
                 ])
             ]);
     }
