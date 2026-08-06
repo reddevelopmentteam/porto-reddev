@@ -5,29 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TeamMember extends Model
+class Role extends Model
 {
     use SoftDeletes;
-    
+
     protected $fillable = [
         'id',
-        'name',
-        'role',
-        'img',
-        'link',
+        'name'
     ];
 
-    protected $casts = [
-        'role' => 'array',
-    ];
-
-    public function roles()
+    public function teamMembers()
     {
         return $this->belongsToMany(
-            Role::class,
+            TeamMember::class,
             'role_team_member',
-            'team_member_id',
-            'role_id'
+            'role_id',
+            'team_member_id'
         );
     }
 }

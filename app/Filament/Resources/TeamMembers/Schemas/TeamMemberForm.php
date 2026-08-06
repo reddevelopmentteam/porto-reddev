@@ -25,26 +25,18 @@ class TeamMemberForm
                             ->label('Full Name')
                             ->placeholder('Enter your full name')
                             ->required(),
-        
                         TextInput::make('link')
                             ->label('Portfolio Link')
                             ->placeholder('https://github.com/username')
                             ->url()
                             ->required(),                
-                        Select::make('role')
+                        Select::make('roles')
+                            ->relationship('roles', 'name')                     
                             ->multiple()
                             ->label('Roles')
-                            ->placeholder('Select Role')
-                            ->options([
-                                'frontend' => 'Frontend Developer',
-                                'backend' => 'Backend Developer',
-                                'fullstack' => 'Full Stack Developer',
-                                'uiux' => 'UI/UX Designer',
-                                'qa' => 'QA Engineer',
-                                'devops' => 'DevOps Engineer',
-                                'leader' => 'Team Leader',
-                                'pm' => 'Project Manager',
-                            ])
+                            ->searchable()
+                            ->placeholder('Select Role')                            
+                            ->preload()
                             ->required(),
                         FileUpload::make('img')
                             ->label('Profile Photo')

@@ -28,32 +28,10 @@ class TeamMembersTable
                     ->disk('public')
                     ->label('Member Photo')
                     ->searchable(),
-                TextColumn::make('role')
+                TextColumn::make('roles.name')
                     ->searchable()
                     ->badge()
-                    ->listWithLineBreaks()
-                    ->formatStateUsing(fn (string $state): string => match ($state) {
-                        'frontend' => 'Frontend',
-                        'backend' => 'Backend',
-                        'fullstack' => 'Full Stack',
-                        'uiux' => 'UI/UX',
-                        'qa' => 'QA',
-                        'leader' => 'Leader',
-                        'devops' => 'DevOps',
-                        'pm' => 'Project Manager',
-                        default => $state,
-                    })
-                    ->color(fn (string $state) => match ($state) {
-                        'frontend' => 'info',      // biru
-                        'backend' => 'success',    // hijau
-                        'fullstack' => 'warning',  // kuning
-                        'uiux' => 'purple',        // ungu
-                        'qa' => 'danger',          // merah
-                        'devops' => 'gray',        // abu-abu
-                        'leader' => 'secondary',    
-                        'pm' => 'primary',         // warna utama panel
-                        default => 'gray',
-                    }),
+                    ->searchable(),                    
                 TextColumn::make('link')
                     ->searchable(),
                 TextColumn::make('created_at')

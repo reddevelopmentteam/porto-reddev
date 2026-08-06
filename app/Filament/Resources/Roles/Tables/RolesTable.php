@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Projects\Tables;
+namespace App\Filament\Resources\Roles\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -9,30 +9,16 @@ use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class ProjectsTable
+class RolesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
-                ImageColumn::make('img')
-                    ->label('Project Image')
-                    ->imageHeight(80)
-                ->imageWidth(80)
-                    ->disk('public')
-                    ->label('Project Image')
-                    ->searchable(),
-                TextColumn::make('techs.name')
-                    ->label('Tech')
-                    ->badge()
-                    ->searchable(),
-                TextColumn::make('link')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
@@ -61,8 +47,8 @@ class ProjectsTable
                     RestoreBulkAction::make(),
                 ]),
             ])
-            ->emptyStateHeading('No Project Data Yet')
-            ->emptyStateDescription("Once you add the first Project's data, the data will appear here.")
-            ->emptyStateIcon('heroicon-o-computer-desktop');
+            ->emptyStateHeading('No Role Data Yet')
+            ->emptyStateDescription("Once you add the first Role's data, the data will appear here.")
+            ->emptyStateIcon('heroicon-o-shield-check');
     }
 }
