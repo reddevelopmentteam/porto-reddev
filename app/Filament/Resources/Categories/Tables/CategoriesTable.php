@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\TeamMembers\Tables;
+namespace App\Filament\Resources\Categories\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -8,31 +8,24 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class TeamMembersTable
+class CategoriesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->searchable(),
+                TextColumn::make('slug')
+                    ->searchable(),
+                TextColumn::make('deleted_at')
+                    ->dateTime()
                     ->sortable()
-                    ->searchable(),
-                ImageColumn::make('photo')
-                    ->imageHeight(80)
-                    ->imageWidth(80)
-                    ->disk('public')
-                    ->label('Member Photo')
-                    ->searchable(),
-                TextColumn::make('roles.name')
-                    ->badge()
-                    ->searchable(),                    
-                TextColumn::make('link')
-                    ->searchable(),
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -47,11 +40,11 @@ class TeamMembersTable
             ])
             ->recordActions([
                 EditAction::make()
-                    ->color('warning')
-                    ->button(),
+                    ->button()
+                    ->color('warning'),
                 DeleteAction::make()
-                ->color('danger')
-                ->button(),
+                    ->button()
+                    ->color('danger'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
@@ -60,8 +53,8 @@ class TeamMembersTable
                     RestoreBulkAction::make(),
                 ]),
             ])
-            ->emptyStateHeading('No Member Data Yet')
-            ->emptyStateDescription("Once you add the first member's data, the data will appear here.")
-            ->emptyStateIcon('heroicon-o-user-group');
+            ->emptyStateHeading('No Category Data Yet')
+            ->emptyStateDescription("Once you add the first Categories data, the data will appear here.")
+            ->emptyStateIcon('heroicon-o-tag');
     }
 }

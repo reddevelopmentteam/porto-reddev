@@ -22,7 +22,8 @@ class SkillsTable
                     ->searchable(),
                 TextColumn::make('icon')
                     ->searchable(),
-                TextColumn::make('category')
+                TextColumn::make('categories.name')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
