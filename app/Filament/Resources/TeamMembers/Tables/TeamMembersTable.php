@@ -22,7 +22,7 @@ class TeamMembersTable
                 TextColumn::make('name')
                     ->sortable()
                     ->searchable(),
-                ImageColumn::make('photo')
+                ImageColumn::make('img')
                     ->imageHeight(80)
                     ->imageWidth(80)
                     ->disk('public')

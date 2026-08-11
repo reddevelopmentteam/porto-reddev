@@ -1,10 +1,19 @@
+@php
+    $setting = \App\Models\Setting::first();
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth" >
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="RED Development adalah studio web yang menyediakan jasa pembuatan website modern, portfolio profesional, dan template berkualitas menggunakan Laravel, Livewire, Filament, React, dan Tailwind CSS.">
-        <link rel="shortcut icon" href="{{ asset('favicon.svg') }}" type="image/x-icon">
+        @if ($setting?->logo)
+            <link
+                rel="shortcut icon"
+                href="{{ Storage::url($setting->logo) }}"
+                type="image/x-icon"
+            >
+        @endif
         <title>{{ $title ?? config('app.name') }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <!-- ioconify -->
@@ -25,7 +34,9 @@
             <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
                 {{-- Logo --}}
                 <a href="#" class="flex items-center gap-2 text-xl font-bold tracking-tight">
-                    <img src="{{ asset('favicon.svg') }}" class="w-10"  alt="">
+                    @if ($setting?->logo)
+                        <img src="{{ Storage::url($setting->logo) }}" class="w-10"  alt="">                        
+                    @endif
                     <span>RED <span class="text-primary">Development</span></span>
                 </a>
 

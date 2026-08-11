@@ -6,6 +6,7 @@ use App\Models\TeamMember;
 use App\Models\Skill;
 use App\Models\Contact;
 use App\Models\Project;
+use App\Models\Setting;
 
 new #[Layout('layouts.app')]  class extends Component
 {
@@ -13,15 +14,18 @@ new #[Layout('layouts.app')]  class extends Component
     public $skills;
     public $contacts;
     public $projects;
+    public $settings;
 
     public function mount()
     {
         $this->skills = Skill::all();
         $this->contacts = Contact::all();
+        $this->settings = Setting::all();
 
         // Ambil project beserta relasi techs
         $this->projects = Project::with('techs')->get();
 
         $this->teamMembers = TeamMember::orderBy('name')->get();
+
     }
 };

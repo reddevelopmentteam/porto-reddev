@@ -409,7 +409,9 @@
     {{-- ========================================================= --}}
     <footer class="relative border-t border-white/10 py-10">
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-center sm:flex-row sm:text-left lg:px-8">
-            <p class="text-sm text-white/50">&copy; {{ date('Y') }} RED Development. All rights reserved.</p>
+            @foreach ( $this->settings as $setting )
+                <p class="text-sm text-white/50">{{ $setting->copyright }}</p>
+            @endforeach
             <div class="flex items-center gap-2 text-sm text-white/50">
                 <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
                 Built with Laravel, Tailwind CSS &amp; Alpine.js
