@@ -64,7 +64,7 @@ class ManageSettings extends Page
                     ->columns(2)
                     ->schema([
                         TextInput::make('title')
-                            ->label('Website Tittle')
+                            ->label('Website Title')
                             ->placeholder('Contoh: Reddev Portfolio')
                             ->required()
                             ->maxLength(255)

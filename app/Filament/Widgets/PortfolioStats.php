@@ -2,9 +2,12 @@
 
 namespace App\Filament\Widgets;
 
+use App\Filament\Resources\Projects\ProjectResource;
+use App\Filament\Resources\Roles\RoleResource;
+use App\Filament\Resources\Teches\TechResource;
 use App\Models\Project;
-use App\Models\Skill;
-use App\Models\TeamMember;
+use App\Models\Role;
+use App\Models\Tech;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
@@ -15,9 +18,9 @@ class PortfolioStats extends StatsOverviewWidget
 
     protected int | string | array $columnSpan = 'full';
 
-    protected ?string $heading = 'Ringkasan data';
+    protected ?string $heading = 'Kesiapan konten';
 
-    protected ?string $description = 'Total konten yang tersedia di portofolio.';
+    protected ?string $description = 'Indikator penting untuk menjaga portofolio tetap lengkap dan siap ditampilkan.';
 
     protected function getColumns(): int | array | null
     {
@@ -27,23 +30,23 @@ class PortfolioStats extends StatsOverviewWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Total anggota', TeamMember::query()->count())
-                ->description('Data anggota tim aktif')
-                ->descriptionIcon(Heroicon::OutlinedUserGroup)
-                ->icon(Heroicon::OutlinedUserGroup)
-                ->chart([1, 1, 1, 1, 1, 1, 1])
+            Stat::make('Project dengan tautan', Project::query()->whereNotNull('link')->count())
+                ->description('Karya yang memiliki tautan tujuan')
+                ->descriptionIcon(Heroicon::OutlinedLink)
+                ->icon(Heroicon::OutlinedLink)
+                ->url(ProjectResource::getUrl('index'))
                 ->color('primary'),
-            Stat::make('Total skill', Skill::query()->count())
-                ->description('Keahlian yang ditampilkan')
-                ->descriptionIcon(Heroicon::OutlinedCodeBracket)
-                ->icon(Heroicon::OutlinedCommandLine)
-                ->chart([1, 1, 1, 1, 1, 1, 1])
+            Stat::make('Teknologi terdaftar', Tech::query()->count())
+                ->description('Stack yang dapat dipakai pada project')
+                ->descriptionIcon(Heroicon::OutlinedCpuChip)
+                ->icon(Heroicon::OutlinedCpuChip)
+                ->url(TechResource::getUrl('index'))
                 ->color('success'),
-            stat::make('Total Project', Project::query()->count())
-                ->description('Keahlian yang ditampilkan')
-                ->descriptionIcon(Heroicon::OutlinedComputerDesktop)
-                ->icon(Heroicon::OutlinedComputerDesktop)
-                ->chart([1, 1, 1, 1, 1, 1, 1])
+            Stat::make('Peran tim', Role::query()->count())
+                ->description('Struktur peran yang telah didefinisikan')
+                ->descriptionIcon(Heroicon::OutlinedIdentification)
+                ->icon(Heroicon::OutlinedIdentification)
+                ->url(RoleResource::getUrl('index'))
                 ->color('warning'),
         ];
     }
