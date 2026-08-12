@@ -11,6 +11,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Enums\ThemeMode;
 use Filament\View\PanelsRenderHook;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -33,13 +34,15 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogoHeight('4rem')
             ->renderHook(
                 PanelsRenderHook::STYLES_AFTER,
-                fn (): string => view('filament.hooks.logo-styles')->render(),
+                fn (): string => view('filament.hooks.app-styles')->render(),
             )
             ->spa()
             ->login()
             ->colors([
                 'primary' => Color::Red,
             ])
+            ->darkMode()
+            ->defaultThemeMode(ThemeMode::Dark)
             ->sidebarWidth('15rem')
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
