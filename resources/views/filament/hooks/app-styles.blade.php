@@ -10,7 +10,7 @@
         overflow: hidden;
         min-height: 12.5rem;
         padding: 2rem 2.25rem;
-        border: 1px solid rgb(255 255 255 / 12%);
+        border: 1px         ;
         border-radius: 1.25rem;
         background:
             linear-gradient(115deg, #1b1012 0%, #55100d 57%, #a90c11 100%);
@@ -22,7 +22,6 @@
 
     .welcome-glow { position: absolute; border-radius: 999px; pointer-events: none; }
     .welcome-glow-one { width: 19rem; height: 19rem; right: 9rem; bottom: -15rem; background: rgb(255 255 255 / 10%); filter: blur(2px); }
-    .welcome-glow-two { width: 12rem; height: 12rem; right: -4rem; top: -6rem; border: 1px solid rgb(255 255 255 / 15%); }
 
     .welcome-eyebrow {
         color: #f5a49e;     
