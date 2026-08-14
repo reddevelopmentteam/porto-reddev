@@ -6,8 +6,38 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-primary: #DC2626;
+    --color-glass: #09090B;
 }
 
 .bg-img{
     background-image: url('/public/images/potfolio.webp');
 }
+
+/* center layout */
+.center-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* navbar diagonal */
+.right-diagonal {
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.left-diagonal {
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.navbar-glass {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+

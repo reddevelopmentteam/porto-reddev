@@ -27,7 +27,7 @@
     <body
         class="bg-img min-h-screen bg-cover text-white antialiased selection:bg-red-500/40">        
 
-        <header>
+        <header class="center-layout h-32 px-10" >
             <x-portfolio.navbar />
         </header>
         <div>
