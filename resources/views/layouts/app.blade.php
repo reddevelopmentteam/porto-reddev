@@ -21,18 +21,18 @@
         {{-- Google Font: Poppins --}}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="style" >
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
         @livewireStyles
     </head>
     <body
         class="bg-img min-h-screen bg-cover text-white antialiased selection:bg-red-500/40">        
 
-        <header class="center-layout h-32 px-10" >
+        <header class="center-layout px-10 fixed top-5 w-full" >
             <x-portfolio.navbar />
         </header>
-        <div>
+        <main>
             {{ $slot }}
-        </div>
+        </main>
 
         @livewireScripts
     </body>
