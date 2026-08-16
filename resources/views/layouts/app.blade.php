@@ -27,10 +27,10 @@
     <body
         class="bg-img min-h-screen bg-cover text-white antialiased selection:bg-red-500/40">        
 
-        <header class="center-layout px-10 fixed top-5 w-full" >
+        <header class="center-layout px-10 fixed top-5 w-full z-50" >
             <x-portfolio.navbar />
         </header>
-        <main>
+        <main class="pb-20">
             {{ $slot }}
         </main>
 
