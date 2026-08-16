@@ -23,14 +23,14 @@
 
                             {{-- Original words --}}
                             @foreach ($heroWords as $word)
-                                <h1 class="flex h-[4.5rem] shrink-0 items-center justify-center whitespace-nowrap">
+                                <h1 class="flex h-[4.5rem] shrink-0 items-center justify-center whitespace-nowrap px-2">
                                     {{ $word }}
                                 </h1>
                             @endforeach
 
                             {{-- Duplicate words untuk infinite loop --}}
                             @foreach ($heroWords as $word)
-                                <h1 class="flex h-[4.5rem] shrink-0 items-center justify-center whitespace-nowrap">
+                                <h1 class="flex h-[4.5rem] shrink-0 items-center justify-center whitespace-nowrap px-2">
                                     {{ $word }}
                                 </h1>
                             @endforeach
