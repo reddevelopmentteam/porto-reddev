@@ -39,7 +39,7 @@ class ProjectForm
                             ->multiple()
                             ->maxSize(2048)
                             ->minFiles(1)
-                            ->maxFiles(2)
+                            ->maxFiles(5)
                             ->image()
                             ->imageEditor()
                             ->imagePreviewHeight('250')

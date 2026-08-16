@@ -1,4 +1,7 @@
 <section>
     <x-portfolio.hero />
-    <x-portfolio.projects.section/>
+    <div class="flex flex-col gap-y-32" >
+        <x-portfolio.projects.section/>
+        <x-portfolio.skills.section/>
+    </div>
 </section>

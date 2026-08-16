@@ -14,7 +14,7 @@
                 type="image/x-icon"
             >
         @endif
-        <title>{{ $title ?? config('app.name') }}</title>
+        <title>{{ $setting->title ?? config('app.name') }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <!-- ioconify -->
         <script src="https://code.iconify.design/iconify-icon/3.0.1/iconify-icon.min.js"></script>

@@ -16,7 +16,7 @@ html::-webkit-scrollbar {
         display: none;
 }
 .bg-img{
-    background-image: url('/public/images/potfolio.webp');
+    background-image: url('/public/images/portfolio.webp');
 }
 
 /* center layout */
