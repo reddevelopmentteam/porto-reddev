@@ -51,7 +51,7 @@
                 {{ $project->name }}
             </h1>
 
-            <div class="text-gray-300 text-sm line-clamp-2 h-12">
+            <div class="text-gray-300 text-sm line-clamp-2 h-10">
                 {{ $project->desc }}
             </div>
 

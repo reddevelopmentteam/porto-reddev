@@ -97,7 +97,7 @@
 
         const wordHeight = 4.5; // rem
         const wordCount = 5;
-        const interval = 2500; // 1.5 detik
+        const interval = 2500; //2.5 detik
         const transitionDuration = 700; // 0.7 detik
 
         let currentIndex = 0;
