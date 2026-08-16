@@ -7,8 +7,9 @@
     --font-inter: 'Inter', ui-sans-serif, system-ui, sans-serif;
     --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
 
-    --color-primary: #DC2626;
+    --color-primary: #DC2626;    
     --color-glass: #09090B;
+    --color-card: #27272A;
 }
 
 html::-webkit-scrollbar {
@@ -34,9 +35,26 @@ html::-webkit-scrollbar {
     clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.navbar-glass {
+.glass {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 
+}
+
+/* hero scroll text animation */
+#text-scroll {
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+}
+
+.text-scroll-item {
+    height: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    white-space: nowrap;
 }
 

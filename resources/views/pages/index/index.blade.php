@@ -1,3 +1,4 @@
-<div>
+<section>
     <x-portfolio.hero />
-</div>
+    <x-portfolio.projects.section/>
+</section>

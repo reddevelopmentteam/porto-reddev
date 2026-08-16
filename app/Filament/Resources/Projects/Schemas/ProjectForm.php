@@ -49,19 +49,11 @@ class ProjectForm
                             ->preserveFilenames()
                             ->columnSpanFull()
                             ->required(),
-                        RichEditor::make('desc')
+                        Textarea::make('desc')
                             ->label('Description')
                             ->placeholder('Enter the Project Description')
                             ->extraAttributes([
-                                'style' => 'min-height: 350px'
-                            ])
-                            ->toolbarButtons([
-                                ['bold', 'italic', 'underline', 'link'],
-                                ['h2', 'h3'],
-                                ['alignStart', 'alignCenter', 'alignEnd'],
-                                ['bulletList', 'orderedList'],
-                                ['table'], // The `customBlocks` and `mergeTags` tools are also added here if those features are used.
-                                ['undo', 'redo'],
+                                'style' => 'min-height: 100px'
                             ])
                             ->columnSpanFull(),
                         TextInput::make('link')
