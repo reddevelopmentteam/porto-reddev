@@ -57,7 +57,7 @@
 
             <!-- Badge -->
             <section class="flex justify-start items-center gap-2 mt-2 mb-4">
-                @foreach ($project->techs as $tech)
+                @foreach ($project->skills as $tech)
                     <div class="relative group/tech">
 
                         <div class="bg-card/40 border border-gray-700 w-10 h-8 rounded-full center-layout">

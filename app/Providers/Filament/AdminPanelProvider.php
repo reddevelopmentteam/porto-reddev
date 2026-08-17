@@ -26,8 +26,8 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->id('admin')
-            ->path('admin')
+            ->id('mpruy')
+            ->path('mpruy')
             ->brandName('RED DEVELOPMENT')
             ->favicon(asset('favicon.svg'))
             ->brandLogo(asset('images/red-logo.svg'))

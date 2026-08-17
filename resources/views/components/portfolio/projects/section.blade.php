@@ -16,43 +16,44 @@
                 </h1>
                 <div class="flex items-end"> 
                     <p class="text-gray-300 text-sm w-[330px] " >
-                        We help businesses and startups transform ideas into powerful digital products. Here are some of our <span class="text-white" >selected projects.</span>
+                        We help businesses and startups transform ideas into powerful digital products. Here are some of our <span class="text-white font-medium" >selected projects.</span>
                     </p>
                 </div>
             </section>
         </div>
         <!-- card -->
-        
-        <div
-            x-data="{
-                open: false,
-                images: [],
-                current: 0,
-
-                show(images) {
-                    this.images = images;
-                    this.current = 0;
-                    this.open = true;
-                    document.body.classList.add('overflow-hidden');
-                },
-
-                close() {
-                    this.open = false;
-                    document.body.classList.remove('overflow-hidden');
-                },
-
-                next() {
-                    this.current = (this.current + 1) % this.images.length;
-                },
-
-                prev() {
-                    this.current = (this.current - 1 + this.images.length) % this.images.length;
-                }
-            }"
-            class="grid grid-cols-3"
-        >
-            <x-portfolio.projects.card/>
-            <x-portfolio.projects.modal-img/>
+        <div class="flex justify-center md:justify-start items-center">
+            <div
+                x-data="{
+                    open: false,
+                    images: [],
+                    current: 0,
+    
+                    show(images) {
+                        this.images = images;
+                        this.current = 0;
+                        this.open = true;
+                        document.body.classList.add('overflow-hidden');
+                    },
+    
+                    close() {
+                        this.open = false;
+                        document.body.classList.remove('overflow-hidden');
+                    },
+    
+                    next() {
+                        this.current = (this.current + 1) % this.images.length;
+                    },
+    
+                    prev() {
+                        this.current = (this.current - 1 + this.images.length) % this.images.length;
+                    }
+                }"
+                class="grid grid-cols-1 md:grid-cols-3"
+            >
+                <x-portfolio.projects.card/>
+                <x-portfolio.projects.modal-img/>
+            </div>
         </div>
     </div>
 </section>

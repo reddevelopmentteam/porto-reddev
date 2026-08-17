@@ -5,6 +5,7 @@ namespace App\Filament\Resources\TeamMembers\Schemas;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
@@ -28,8 +29,7 @@ class TeamMemberForm
                         TextInput::make('link')
                             ->label('Portfolio Link')
                             ->placeholder('https://github.com/username')
-                            ->url()
-                            ->required(),                
+                            ->url(),           
                         Select::make('roles')
                             ->relationship('roles', 'name')                     
                             ->multiple()
@@ -50,6 +50,13 @@ class TeamMemberForm
                             ->preserveFilenames()
                             ->columnSpanFull()
                             ->required(),
+                        Textarea::make('desc')
+                            ->label('Description')
+                            ->placeholder('Enter the member Description')
+                            ->extraAttributes([
+                                'style' => 'min-height: 100px'
+                            ])
+                            ->columnSpanFull(),
                     ])
             ]);
     }

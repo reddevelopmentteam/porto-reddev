@@ -15,19 +15,29 @@ class TeamMember extends Model
         'role',
         'img',
         'link',
+        'desc',
     ];
 
     protected $casts = [
         'role' => 'array',
+        'skill' => 'array'
     ];
 
     public function roles()
-    {
+    {   
         return $this->belongsToMany(
             Role::class,
             'role_team_member',
             'team_member_id',
             'role_id'
-        );
+        )
+        ->orderByRaw("
+            CASE
+                WHEN LOWER(name) = 'leader' THEN 0
+                ELSE 1
+            END
+        ")
+        ->orderBy('name');
     }
+
 }
