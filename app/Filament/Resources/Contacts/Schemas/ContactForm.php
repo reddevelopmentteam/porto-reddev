@@ -18,7 +18,15 @@ class ContactForm
                 ->schema([
                     TextInput::make('name')
                         ->label('Contact Name')
-                        ->placeholder('Enter your full name')
+                        ->placeholder('Example : 081234545 or reddev@gmail.com')
+                        ->required(),
+                    TextInput::make('title')
+                        ->label('Contact Title')
+                        ->placeholder('Example : WhatsApp or Discord')
+                        ->required(),
+                    TextInput::make('icon')
+                        ->label('Contact Icon')
+                        ->placeholder('Example : mdi:home')
                         ->required(),
                     TextInput::make('link')
                         ->label('Link Contact')

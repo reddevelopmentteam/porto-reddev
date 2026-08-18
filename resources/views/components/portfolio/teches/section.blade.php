@@ -5,7 +5,7 @@
             <!-- title -->
             <section class="flex justify start" >
                 <div class="flex justify-start items-center gap-3" >
-                    <p class="text-primary text-xs font-bold font-inter">OUR SKILLS</p>
+                    <p class="text-primary text-xs font-bold font-inter">OUR TECH STACK</p>
                     <div class="border-[0.5px] border-primary w-24"></div>
                 </div>
             </section>

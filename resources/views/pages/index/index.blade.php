@@ -4,5 +4,6 @@
         <x-portfolio.projects.section/>
         <x-portfolio.teches.section/>
         <x-portfolio.team-members.section/>
+        <x-portfolio.contacts.section/>
     </div>
 </section>

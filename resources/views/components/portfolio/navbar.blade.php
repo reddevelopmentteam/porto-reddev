@@ -14,7 +14,7 @@
         </div>
         <!-- nav menu -->
         <div class="center-layout gap-8 font-semibold">
-            @foreach (['work', 'tech stack', 'team', 'process'] as $menu)
+            @foreach (['work', 'tech stack', 'team', 'contact'] as $menu)
                 <a href="#{{ $menu }}"
                     class="rounded-xl px-4 py-2 hover:bg-gray-800/50 active:scale-95 font-inter capitalize"
                     >
