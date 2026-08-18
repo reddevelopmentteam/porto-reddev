@@ -20,6 +20,10 @@ class ContactsTable
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
+                TextColumn::make('title')
+                    ->searchable(),
+                TextColumn::make('icon')
+                    ->searchable(),
                 TextColumn::make('link')
                     ->searchable(),
                 TextColumn::make('created_at')
