@@ -25,4 +25,14 @@ class Skill extends Model
             'category_id'
         );
     }
+
+    public function projects()
+    {
+        return $this->belongsToMany(
+            Project::class,
+            'skill_team_member_id',
+            'team_member_id',
+            'skill_id'
+        );
+    }
 }

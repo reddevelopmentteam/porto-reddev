@@ -26,9 +26,9 @@ class ProjectForm
                             ->label('Project Name')
                             ->placeholder('Enter the Project Name')
                             ->required(),
-                        Select::make('techs')
+                        Select::make('skills')
                             ->multiple()
-                            ->relationship('techs', 'name')
+                            ->relationship('skills', 'name')
                             ->placeholder('Select Technology')
                             ->label('technology used')
                             ->searchable()

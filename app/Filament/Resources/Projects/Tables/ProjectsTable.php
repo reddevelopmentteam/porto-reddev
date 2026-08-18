@@ -28,7 +28,7 @@ class ProjectsTable
                     ->disk('public')
                     ->label('Project Image')
                     ->searchable(),
-                TextColumn::make('techs.name')
+                TextColumn::make('skill.name')
                     ->label('Tech')
                     ->badge()
                     ->searchable(),

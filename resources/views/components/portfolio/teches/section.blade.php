@@ -1,4 +1,4 @@
-<section class="center-layout" id="skills" >
+<section class="center-layout" id="tech stack" >
     <div class="flex flex-col w-7xl">
         <!-- container brand -->
         <div>
@@ -23,6 +23,6 @@
         </div>
         
         <!-- content -->
-        <x-portfolio.skills.content/>
+        <x-portfolio.teches.content/>
     </div>
 </section>

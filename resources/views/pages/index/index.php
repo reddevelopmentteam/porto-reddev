@@ -22,10 +22,11 @@ new #[Layout('layouts.app')]  class extends Component
         $this->contacts = Contact::all();
         $this->settings = Setting::all();
 
-        // Ambil project beserta relasi techs
-        $this->projects = Project::with('techs')->get();
+        // Ambil project beserta relasi skills
+        $this->projects = Project::with('skills')->get();
 
-        $this->teamMembers = TeamMember::orderBy('name')->get();
+        // relasi dengan roles
+        $this->teamMembers = TeamMember::with('roles')->get();
 
     }
 };

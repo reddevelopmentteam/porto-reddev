@@ -17,7 +17,7 @@
     .marquee-group {
         display: flex;
         gap: 1.5rem;
-        padding-right: 1.25rem;
+        padding-right: 1.5rem;
         flex-shrink: 0;
     }
 </style>
@@ -26,6 +26,16 @@
     class="relative w-full overflow-hidden bg-card/20 border glass border-card rounded-2xl py-5 px-0 mt-10 shadow-md"
 >
     <div class="flex flex-col gap-y-6">
+        @php
+            $skillsTop = $this->skills->shuffle()->values();
+
+            // Mengacak ulang dalam do...while akan tidak pernah selesai bila
+            // koleksi hanya berisi nol atau satu skill. Geser urutan untuk
+            // marquee kedua agar berbeda bila memungkinkan, tanpa retry loop.
+            $skillsBottom = $skillsTop->count() > 1
+                ? $skillsTop->slice(1)->push($skillsTop->first())->values()
+                : $skillsTop;
+        @endphp
 
         <!-- TOP -->
         <div class="marquee-wrapper">
@@ -36,16 +46,14 @@
                 data-direction="left"
             >
                 <div class="marquee-group">
-                    @foreach ($this->skills as $skill)
-                        @if ($loop->index <= 14)
-                            <div class="shadow-md w-20 h-20 shrink-0 center-layout rounded-2xl bg-icon">
-                                <iconify-icon
-                                    icon="{{ $skill->icon }}"
-                                    width="36"
-                                    height="36"
-                                />
-                            </div>
-                        @endif
+                    @foreach ($skillsTop as $skill)
+                        <div class="shadow-md w-20 h-20 shrink-0 center-layout rounded-2xl bg-icon">
+                            <iconify-icon
+                                icon="{{ $skill->icon }}"
+                                width="36"
+                                height="36"
+                            />
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -60,16 +68,14 @@
                 data-direction="right"
             >
                 <div class="marquee-group">
-                    @foreach ($this->skills as $skill)
-                        @if ($loop->index >= 15)
-                            <div class="shadow-md w-20 h-20 shrink-0 center-layout rounded-2xl bg-icon">
-                                <iconify-icon
-                                    icon="{{ $skill->icon }}"
-                                    width="36"
-                                    height="36"
-                                />
-                            </div>
-                        @endif
+                    @foreach ($skillsBottom as $skill)
+                        <div class="shadow-md w-20 h-20 shrink-0 center-layout rounded-2xl bg-icon">
+                            <iconify-icon
+                                icon="{{ $skill->icon }}"
+                                width="36"
+                                height="36"
+                            />
+                        </div>
                     @endforeach
                 </div>
             </div>

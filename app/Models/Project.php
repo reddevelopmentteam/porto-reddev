@@ -14,22 +14,22 @@ class Project extends Model
         'name',
         'img',
         'desc',
-        'tech',
+        'skill',
         'link'
     ];
 
     protected $casts = [
-        'tech' => 'array',
+        'skill' => 'array',
         'img' => 'array',
     ];
 
-    public function techs()
+    public function skills()
     {
         return $this->belongsToMany(
-            Tech::class,
-            'project_tech',
+            Skill::class,
+            'project_skill',
             'project_id',
-            'tech_id'
+            'skill_id'
         );
     }
 }

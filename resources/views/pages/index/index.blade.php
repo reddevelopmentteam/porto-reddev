@@ -2,6 +2,7 @@
     <x-portfolio.hero />
     <div class="flex flex-col gap-y-32" >
         <x-portfolio.projects.section/>
-        <x-portfolio.skills.section/>
+        <x-portfolio.teches.section/>
+        <x-portfolio.team-members.section/>
     </div>
 </section>

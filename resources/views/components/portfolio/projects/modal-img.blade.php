@@ -36,7 +36,7 @@
         </button>
 
         <!-- Image -->
-        <div class="relative flex items-center justify-center">
+        <div class="relative flex items-center justify-center max-h-[75vh]">
 
             <img
                 :src="images[current]"

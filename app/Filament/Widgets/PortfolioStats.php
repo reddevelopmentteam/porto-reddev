@@ -4,10 +4,11 @@ namespace App\Filament\Widgets;
 
 use App\Filament\Resources\Projects\ProjectResource;
 use App\Filament\Resources\Roles\RoleResource;
+use App\Filament\Resources\Skills\SkillResource;
 use App\Filament\Resources\Teches\TechResource;
 use App\Models\Project;
 use App\Models\Role;
-use App\Models\Tech;
+use App\Models\Skill;
 use Filament\Support\Icons\Heroicon;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
@@ -36,11 +37,11 @@ class PortfolioStats extends StatsOverviewWidget
                 ->icon(Heroicon::OutlinedLink)
                 ->url(ProjectResource::getUrl('index'))
                 ->color('primary'),
-            Stat::make('Teknologi terdaftar', Tech::query()->count())
+            Stat::make('Teknologi terdaftar', Skill::query()->count())
                 ->description('Stack yang dapat dipakai pada project')
                 ->descriptionIcon(Heroicon::OutlinedCpuChip)
                 ->icon(Heroicon::OutlinedCpuChip)
-                ->url(TechResource::getUrl('index'))
+                ->url(SkillResource::getUrl('index'))
                 ->color('success'),
             Stat::make('Peran tim', Role::query()->count())
                 ->description('Struktur peran yang telah didefinisikan')
