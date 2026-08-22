@@ -1,7 +1,7 @@
 <section class="bg-card/20 border glass border-card rounded-2xl p-2">
-    <div class="grid grid-cols-2 md:grid-cols-3">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         @foreach ( $this->contacts as $contact )
-            <div class="p-5 pr-0">
+            <div class="p-5">
                 
                 <div class="text-5xl text-primary">
                     <iconify-icon
@@ -9,7 +9,7 @@
                     ></iconify-icon>
                 </div>
 
-                <div class="border-r border-gray-500/40 pr-5 {{ $loop->last ? 'border-r-0' : '' }}" >
+                <div class="border-b border-gray-500/40 pb-4 sm:border-b-0 sm:border-r sm:pr-5 {{ $loop->last ? 'sm:border-r-0' : '' }}" >
 
                     <h3 class="text-xl font-semibold text-white">
                         {{$contact->title }}
