@@ -1,5 +1,5 @@
-<section class="center-layout" id="work" >
-    <div class="flex flex-col w-7xl">
+<section class="center-layout px-5 md:px-10" id="work" >
+    <div class="flex w-full max-w-7xl flex-col">
         <!-- container brand -->
         <div>
             <!-- title -->
@@ -10,12 +10,12 @@
                 </div>
             </section>
             <!-- kata kata -->
-            <section class="flex justify-start gap-8 mt-2">
-                <h1 class="text-white font-bold text-5xl font-display w-96 leading-tight">
+            <section class="mt-2 flex flex-col gap-4 md:flex-row md:gap-8">
+                <h1 class="w-full max-w-md text-3xl font-bold font-display leading-tight md:text-5xl">
                     Digital products built to <span class="bg-white text-black" >perform</span><span class="text-primary">.</span>
                 </h1>
-                <div class="flex items-end"> 
-                    <p class="text-gray-300 text-sm w-[330px] " >
+                <div class="flex items-end">
+                    <p class="max-w-sm text-sm text-gray-300 md:w-[330px]" >
                         We help businesses and startups transform ideas into powerful digital products. Here are some of our <span class="text-white font-medium" >selected projects.</span>
                     </p>
                 </div>
@@ -49,7 +49,7 @@
                         this.current = (this.current - 1 + this.images.length) % this.images.length;
                     }
                 }"
-                class="grid grid-cols-1 md:grid-cols-3"
+                class="grid w-full grid-cols-1 gap-5 md:grid-cols-3"
             >
                 <x-portfolio.projects.card/>
                 <x-portfolio.projects.modal-img/>

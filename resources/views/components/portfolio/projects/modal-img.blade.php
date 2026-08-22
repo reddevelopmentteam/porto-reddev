@@ -36,13 +36,13 @@
         </button>
 
         <!-- Image -->
-        <div class="relative flex items-center justify-center max-h-[75vh]">
+        <div class="relative flex items-center justify-center max-h-[70vh]">
 
             <img
                 :src="images[current]"
                 alt="Project preview"
-                class="max-h-[75vh] w-full
-                        object-contain
+                class="max-h-[70vh] w-full
+                        object-cover
                         rounded-xl"
             >
 

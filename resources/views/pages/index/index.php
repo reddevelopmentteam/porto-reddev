@@ -14,14 +14,11 @@ new #[Layout('layouts.app')]  class extends Component
     public $skills;
     public $contacts;
     public $projects;
-    public $settings;
 
     public function mount()
     {
         $this->skills = Skill::all();
         $this->contacts = Contact::all();
-        $this->settings = Setting::all();
-
         // Ambil project beserta relasi skills
         $this->projects = Project::with('skills')->get();
 

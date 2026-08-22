@@ -1,5 +1,5 @@
 @foreach ($this->projects as $project)
-    <section class="bg-card/20 border glass border-card rounded-2xl p-4 mt-10 w-sm shadow-md">
+    <section class="mt-6 w-full max-w-sm rounded-2xl border border-card bg-card/20 p-4 shadow-md md:mt-10 md:w-sm">
 
         <!-- Image Wrapper -->
         <div class="relative group overflow-hidden rounded-2xl">
@@ -9,7 +9,11 @@
                 <!-- Image -->
                 <img
                     src="{{ Storage::url($project->img[0]) }}"
-                    alt="project foto"
+                    alt="{{ $project->name }}"
+                    width="1920"
+                    height="930"
+                    loading="lazy"
+                    decoding="async"
                     class="rounded-2xl border-2 border-card w-full h-72 object-cover
                             transition-transform duration-500
                             group-hover:scale-105"

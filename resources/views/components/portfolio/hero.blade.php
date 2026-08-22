@@ -1,16 +1,16 @@
-<section class="center-layout h-[48rem]">
-    <div class="mt-10 flex flex-col gap-5">
+<section class="center-layout min-h-screen px-5 py-36 md:h-[48rem] md:px-10 md:py-0">
+    <div class="flex flex-col gap-5 md:mt-10">
 
         <!-- text hero -->
-        <div class="flex flex-col space-y-5 text-center font-display text-6xl font-bold">
+        <div class="flex flex-col space-y-5 text-center font-display text-3xl md:text-6xl font-bold">
 
             <h1>We Build</h1>
 
             <!-- Rotating Text -->
-            <div class="flex justify-center">
+            <div class="md:flex justify-center">
                 <div
                     id="text-scroll-wrapper"
-                    class="relative h-[4.5rem] min-w-[40rem] overflow-hidden rounded-lg"
+                    class="relative h-[4.5rem] w-full md:max-w-[20rem] md:min-w-[40rem] overflow-hidden rounded-lg"
                 >
                     <div id="heroWords">
 
@@ -27,7 +27,7 @@
                         {{-- Original words --}}
                         @foreach ($heroWords as $index => $word)
                             <div
-                                class="hero-word"
+                                class="hero-word "
                                 data-index="{{ $index }}"
                             >
                                 <div class="hero-word-bg"></div>
@@ -37,7 +37,7 @@
                         {{-- Duplicate words --}}
                         @foreach ($heroWords as $index => $word)
                             <div
-                                class="hero-word"
+                                class="hero-word w-20  md:w-96 "
                                 data-index="{{ $index }}"
                             >
                                 <div class="hero-word-bg"></div>
@@ -47,13 +47,14 @@
                     </div>
                 </div>
             </div>
-
-            <h1>
-                that move businesses forward<span class="text-primary">.</span>
-            </h1>
+            <div class="flex justify-center">
+                <h1 class="max-w-sm px-2 md:w-auto md:max-w-none text-center" >
+                    that move businesses forward<span class="md:text-primary">.</span>
+                </h1>
+            </div>
 
             <div class="flex justify-center font-inter">
-                <p class="w-[60%] text-sm font-normal">
+                <p class="max-w-sm px-2 text-sm font-normal md:w-[60%] md:max-w-none">
                     We design and develop websites, digital products, and
                     software that are built to perform and grow.
                 </p>
@@ -64,7 +65,7 @@
         <!-- feature -->
         <div class="center-layout mt-10">
 
-            <section class="grid w-[70%] grid-cols-3 gap-10">
+            <section class="grid w-full max-w-sm grid-cols-2 gap-6 md:w-[70%] md:max-w-none md:grid-cols-3 md:gap-10">
 
                 @php
                     $features = [
@@ -87,7 +88,7 @@
                 @endphp
 
                 @foreach ($features as $feature)
-                    <div class="border-r border-gray-500/40 pr-5 last:border-0">
+                    <div class="border-b border-gray-500/40 pb-6 last:border-0 md:border-r md:border-b-0 md:pb-0 md:pr-5">
 
                         <div class="mb-1 text-4xl text-primary">
                             <iconify-icon
@@ -99,7 +100,7 @@
                             {{ $feature['title'] }}
                         </h3>
 
-                        <p class="mt-2 w-48 text-sm text-gray-300">
+                        <p class="mt-2 text-sm text-gray-300 md:w-48">
                             {{ $feature['description'] }}
                         </p>
 
@@ -166,7 +167,6 @@
 
         width: 100%;
         height: 4.5rem;
-        min-height: 4.5rem;
 
         display: flex;
         align-items: center;
@@ -228,6 +228,18 @@
         will-change: transform;
 
         flex-shrink: 0;
+    }
+
+    .hero-mask-text {
+    font-size: 40px;
+    }
+
+
+    @media (min-width: 768px) {
+        .hero-mask-text {
+            font-size: 60px;
+        }
+
     }
 </style>
 

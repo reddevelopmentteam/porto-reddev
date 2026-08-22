@@ -2,14 +2,18 @@
     <section
         class="group relative overflow-hidden
                 bg-card/20 border glass border-card
-                rounded-2xl p-4 mt-10 shadow-md"
+                mt-6 w-full max-w-sm justify-self-center rounded-2xl p-4 shadow-md md:mt-10 md:max-w-72"
     >
 
         <!-- FOTO -->
         <div class="relative z-0 overflow-hidden rounded-2xl">
             <img
                 src="{{ Storage::url($team->img) }}"
-                alt="team foto"
+                alt="{{ $team->name }}"
+                width="1086"
+                height="1448"
+                loading="lazy"
+                decoding="async"
                 class="rounded-2xl border-2 border-card w-full h-72 object-cover"
             >
         </div>
@@ -19,8 +23,9 @@
             class="relative z-20 mt-4
                     flex flex-col space-y-2
                     transition-transform duration-700
-                    ease-in
-                    group-hover:-translate-y-72"
+                    ease-in-out
+                    group-hover:-translate-y-72
+                    h-24"
         >
             <h1 class="text-xl font-bold text-white capitalize h-16">
                 {{ $team->name }}
@@ -47,7 +52,7 @@
                     rounded-2xl
                     translate-y-full
                     transition-transform duration-700
-                    ease-in
+                    ease-in-out
                     group-hover:translate-y-0"
         >
 

@@ -1,5 +1,5 @@
-<section class="center-layout" id="team" >
-    <div class="flex flex-col w-7xl">
+<section class="center-layout px-5 md:px-10" id="team" >
+    <div class="flex w-full max-w-7xl flex-col">
         <!-- container brand -->
         <div>
             <!-- title -->
@@ -10,12 +10,12 @@
                 </div>
             </section>
             <!-- kata kata -->
-            <section class="flex justify-start gap-8 mt-2">
-                <h1 class="text-white font-bold text-5xl font-display w-96 leading-tight">
+            <section class="mt-2 flex flex-col gap-4 md:flex-row md:gap-8">
+                <h1 class="w-full max-w-md text-3xl font-bold font-display leading-tight md:text-5xl">
                     People behind the <span class="text-primary" >work</span>.
                 </h1>
                 <div class="flex items-end"> 
-                    <p class="text-gray-300 text-sm w-[335px] " >                        
+                    <p class="max-w-sm text-sm text-gray-300 md:w-[335px]" >
                         A small team of designers and developers building digital products with purpose.
                     </p>
                 </div>
@@ -23,7 +23,7 @@
         </div>
         
         <!-- content -->
-        <div class="grid gap-5 grid-cols-1 md:grid-cols-4">
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <x-portfolio.team-members.card/>
         </div>
     </div>

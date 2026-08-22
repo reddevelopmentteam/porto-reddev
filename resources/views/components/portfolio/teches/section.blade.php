@@ -1,5 +1,5 @@
-<section class="center-layout" id="tech stack" >
-    <div class="flex flex-col w-7xl">
+<section class="center-layout px-5 md:px-10" id="tech stack" >
+    <div class="flex w-full max-w-7xl flex-col">
         <!-- container brand -->
         <div>
             <!-- title -->
@@ -10,12 +10,12 @@
                 </div>
             </section>
             <!-- kata kata -->
-            <section class="flex justify-start gap-8 mt-2">
-                <h1 class="text-white font-bold text-5xl font-display w-64 leading-tight">
+            <section class="mt-2 flex flex-col gap-4 md:flex-row md:gap-8">
+                <h1 class="w-full max-w-xs text-3xl font-bold font-display leading-tight md:text-5xl">
                     What we build <span class="text-primary" >with</span>.
                 </h1>
                 <div class="flex items-end"> 
-                    <p class="text-gray-300 text-sm w-[335px] " >
+                    <p class="max-w-sm text-sm text-gray-300 md:w-[335px]" >
                         We use modern tools and technologies to design and develop digital products.
                     </p>
                 </div>
