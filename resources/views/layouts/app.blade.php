@@ -21,6 +21,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"></noscript>
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
         @livewireStyles
     </head>
     <body
@@ -38,6 +39,7 @@
         </footer>
 
         @livewireScripts
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
         <script src="https://code.iconify.design/iconify-icon/3.0.1/iconify-icon.min.js" defer></script>
     </body>
 </html>

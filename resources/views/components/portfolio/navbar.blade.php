@@ -5,7 +5,7 @@
     <!-- LEFT NAV -->
     <section
         class="p-2 md:rounded-l-4xl md:max-w-[79rem]
-                right-diagonal md:glass md:bg-glass/40"
+                right-diagonal glass md:bg-glass/40"
     >
         <div class="flex items-center justify-between gap-3 px-3 md:px-6">
 
