@@ -11,7 +11,12 @@
             </div>
 
             <div class="welcome-status">
-                <div class="welcome-status-icon" aria-hidden="true">↗</div>
+                <div class="welcome-status-icon" aria-hidden="true">
+                    <x-filament::icon
+                        icon="heroicon-o-arrow-up-right"
+                        class="w-5 h-5"
+                    />
+                </div>
                 <div>
                     <span>Project terbaru</span>
                     <strong>{{ $latestProject ?? 'Siap untuk karya berikutnya' }}</strong>
