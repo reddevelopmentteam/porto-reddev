@@ -27,7 +27,7 @@
                         items-center justify-center
                         gap-8 font-semibold"
             >
-                @foreach (['work', 'tech stack', 'team'] as $menu)
+                @foreach (['work', 'tech-stack', 'team'] as $menu)
                     <a
                         href="#{{ $menu }}"
                         class="rounded-xl px-4 py-2
@@ -180,7 +180,7 @@
         <!-- MENU -->
         <div
             class="flex flex-col gap-2 mt-10
-                    font-inter font-semibold"    
+                    font-inter font-semibold"
         >
             @foreach (['work', 'tech stack', 'team'] as $menu)
                 <a
