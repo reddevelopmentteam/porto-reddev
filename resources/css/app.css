@@ -1,8 +1,60 @@
 @import 'tailwindcss';
-
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-inter: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+
+    --color-primary: #DC2626;    
+    --color-glass: #09090B;
+    --color-card: #27272A;
 }
+
+html::-webkit-scrollbar {
+        display: none;
+}
+.bg-img{
+    background-image: url('/public/images/portfolio.webp');
+}
+
+/* center layout */
+.center-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* navbar diagonal */
+.right-diagonal {
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.left-diagonal {
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.glass {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+}
+
+/* hero scroll text animation */
+#text-scroll {
+    display: flex;
+    flex-direction: column;
+    will-change: transform;
+}
+
+.text-scroll-item {
+    height: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    white-space: nowrap;
+}
+
